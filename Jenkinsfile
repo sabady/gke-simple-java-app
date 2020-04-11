@@ -16,11 +16,15 @@ pipeline {
     }
 
     stage('Build Maven') {
-      sh 'mvn -B -DskipTests clean package'
+      steps {
+        sh 'mvn -B -DskipTests clean package'
+      }
     }
 
     stage('Test Maven') {
-      sh 'mvn test'
+      steps {
+        sh 'mvn test'
+      }
     }
 
     stage('Build image') {
